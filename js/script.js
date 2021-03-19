@@ -1,6 +1,8 @@
 var coeffKm = 0.21; // prezzo al chilometro
 var coeffOver65 = 0.6; // sconto over 65
 var coeffUnder18 = 0.8; //sconto under 18
+
+alert("Grazie per aver scelto Trenord:\ninserire la propria età e i chilometri totali da percorrere (in formato numerico) per calcolare il prezzo del biglietto")
 var etaUtente = parseInt(prompt('Quanti anni hai?'));
 var kmPercorsi = parseInt(prompt('Quanti chilometri devi percorrere?'));
 
@@ -28,5 +30,4 @@ var prezzoFinale = prezzo.toFixed(2);
 
 var messaggio = `spenderai ${prezzoFinale} euro`;
 
-// Alert utente spesa totale
 document.getElementById('spesa').innerHTML = messaggio;
