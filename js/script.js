@@ -4,24 +4,25 @@ const junior = 18; // età massima per accedere a sconti junior
 const scontoSenior = 0.4; // sconto senior
 const scontoJunior = 0.2; //sconto junior
 
-function debug(f) {
-    return f;
-}
+// function debug(f) {
+//     return f;
+// }
 
 // Validazione dati utente
 alert("Grazie per aver scelto Trenord:\ninserire la propria età e i chilometri totali da percorrere (in formato numerico) per calcolare il prezzo del biglietto")
 var etaUtente = prompt('Quanti anni hai?');
-debug(console.log(etaUtente));
-/* pazzescamente se dopo almeno un primo valore numerico inserisco dei caratteri non numerici, mi considera il valore valido e 
-"taglia" dal primo carattere non valido (es: 10er433f diventa 10)! Dovrò spostare "a valle" il parseInt? */
-debug(console.log("10 e caratteri random" * 1));
-//questa sembra una buona soluzione per assicurarsi un NaN, no?
+
 var kmPercorsi = prompt('Quanti chilometri devi percorrere?');
 
+// messo per evitare numeri logaritmici strani (per ora evito regex varie)
+var eBug = etaUtente.includes("e") || kmPercorsi.includes("e");
+
+// messo per evitare vengano validate sequenze genere "10efeecceef"
 etaUtente = parseInt((etaUtente * 1));
 kmPercorsi = parseInt((kmPercorsi * 1));
 
-if (isNaN(etaUtente) || isNaN(kmPercorsi) || etaUtente <= 0 || kmPercorsi <= 0) {
+
+if (isNaN(etaUtente) || isNaN(kmPercorsi) || etaUtente <= 0 || kmPercorsi <= 0 || eBug == true) {
     alert('inseriti dati non validi, riprovare')
     location.reload();
 }
