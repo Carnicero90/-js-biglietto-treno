@@ -2,7 +2,7 @@ var coeffKm = 0.21; // prezzo al chilometro
 var senior = 65; // età minima per accedere a sconti senior
 var junior = 18; // età massima per accedere a sconti junior
 var scontoSenior = 0.4; // sconto senior
-var scontoMinor = 0.2; //sconto junior
+var scontoJunior = 0.2; //sconto junior
 
 // Validazione dati utente
 alert("Grazie per aver scelto Trenord:\ninserire la propria età e i chilometri totali da percorrere (in formato numerico) per calcolare il prezzo del biglietto")
@@ -17,7 +17,7 @@ if (isNaN(etaUtente) || isNaN(kmPercorsi)) {
 // Calcolo sconto
 var fattorePrezzo = 1;
 if (etaUtente < junior) {
-    fattorePrezzo -= scontoMinor;
+    fattorePrezzo -= scontoJunior;
 } else if (etaUtente > senior) {
     fattorePrezzo -= scontoSenior;
 }
@@ -29,7 +29,7 @@ document.getElementById('prezzo-base').innerHTML = prezzo.toLocaleString("it-IT"
 });
 
 prezzo *= fattorePrezzo;
-scontoApplicato = ((1 - fattorePrezzo) * 100).toFixed(0) + "%";
+scontoApplicato = Math.round((1 - fattorePrezzo) * 100).toString() + "%";
 
 var prezzoFinale = prezzo.toLocaleString("it-IT", {
     minimumFractionDigits: 2,
