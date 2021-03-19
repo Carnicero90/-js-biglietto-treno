@@ -50,4 +50,4 @@ document.getElementById('sconto').innerHTML = (sconto * 100).toString() + "%"; /
 document.getElementById('totale').innerHTML = prezzoFinale.toLocaleString("it-IT", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
-});;
+});

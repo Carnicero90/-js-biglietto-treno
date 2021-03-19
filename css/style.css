@@ -20,6 +20,8 @@ li {
     display: inline-block;
 }
 
+/* flex
+   ++++++++++ */
 .flexer {
     display: flex;
 }
@@ -32,17 +34,20 @@ li {
     justify-content: space-between;
 }
 
+/* ++++++++++ */
 .wrapper {
     padding-left: 5%;
     padding-right: 5%;
 }
 
+/* =============== */
+
+/* MACRO LAYOUT
+   =============== */
 body {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
 }
-
-/* =============== */
 
 header {
     position: fixed;
@@ -61,6 +66,19 @@ main {
     padding-top: 50px;
     min-height: calc(100vh - 80px);
 }
+
+footer {
+    height: 80px;
+    border-top: 2px solid slategrey;
+    align-items: center;
+}
+
+/* =============== */
+
+/* MICRO LAYOUT */
+
+/* main
+   ++++++++++ */
 
 h1 {
     font-weight: bolder;
@@ -98,15 +116,17 @@ td {
     content: "\20AC";
 }
 
-footer {
-    height: 80px;
-    border-top: 2px solid slategrey;
-    align-items: center;
-}
+/* ++++++++++ */
 
+/* footer
+   ++++++++++ */
 footer li:nth-child(1n + 2)::before {
     content: "";
     margin-left: 10px;
     margin-right: 10px;
     border-right: 1px solid slategrey;
 }
+
+/* ++++++++++ */
+
+/* =============== */
