@@ -25,8 +25,7 @@ if (etaUtente > 65) {
 }
 
 // Arrotondo a 2 cifre decimali
-var prezzoFinale = prezzo.toFixed(2);
-
+var prezzoFinale = prezzo.toLocaleString("it-IT", 2);
 
 var messaggio = `spenderai ${prezzoFinale} euro`;
 
