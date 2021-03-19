@@ -16,10 +16,13 @@ if (isNaN(etaUtente) || isNaN(kmPercorsi)) {
 
 // Calcolo sconto
 var fattorePrezzo = 1;
+var sconto = 0;
 if (etaUtente < junior) {
-    fattorePrezzo -= scontoJunior;
+    fattorePrezzo = 1 - scontoJunior;
+    sconto = scontoJunior;
 } else if (etaUtente > senior) {
-    fattorePrezzo -= scontoSenior;
+    fattorePrezzo = 1 - scontoSenior;
+    sconto = scontoSenior;
 }
 var prezzo = kmPercorsi * coeffKm;
 
@@ -29,7 +32,7 @@ document.getElementById('prezzo-base').innerHTML = prezzo.toLocaleString("it-IT"
 });
 
 prezzo *= fattorePrezzo;
-scontoApplicato = Math.round((1 - fattorePrezzo) * 100).toString() + "%";
+scontoApplicato = (sconto * 100).toString() + "%";
 
 var prezzoFinale = prezzo.toLocaleString("it-IT", {
     minimumFractionDigits: 2,
