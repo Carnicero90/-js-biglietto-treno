@@ -11,21 +11,19 @@ const scontoJunior = 0.2; //sconto junior
 // Validazione dati utente
 alert("Grazie per aver scelto Trenord:\ninserire la propria età e i chilometri totali da percorrere (in formato numerico) per calcolare il prezzo del biglietto")
 var etaUtente = prompt('Quanti anni hai?');
-
+console.log(etaUtente);
 var kmPercorsi = prompt('Quanti chilometri devi percorrere?');
 
-// messo per evitare numeri logaritmici strani (per ora evito regex varie)
-var eBug = etaUtente.includes("e") || kmPercorsi.includes("e");
+// Debuggato tutti i potenziali problemi che vedo ora come ora
+var eBug = (etaUtente == null || etaUtente.includes("e")) || (kmPercorsi == null || kmPercorsi.includes("e"));
+var nanBug = isNaN(etaUtente * 1) || isNaN(kmPercorsi * 1);
+var valueBug = 0 >= etaUtente || etaUtente >= Infinity || 0 >= kmPercorsi || kmPercorsi >= Infinity;
 
-// messo per evitare vengano validate sequenze genere "10efeecceef"
-etaUtente = parseInt((etaUtente * 1));
-kmPercorsi = parseInt((kmPercorsi * 1));
-
-
-if (isNaN(etaUtente) || isNaN(kmPercorsi) || etaUtente <= 0 || kmPercorsi <= 0 || eBug == true) {
+if (eBug || nanBug || valueBug) {
     alert('inseriti dati non validi, riprovare')
     location.reload();
 }
+
 
 // Calcolo sconto
 var fattorePrezzo = 1;
