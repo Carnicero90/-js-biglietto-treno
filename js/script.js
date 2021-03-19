@@ -4,10 +4,16 @@ const junior = 18; // età massima per accedere a sconti junior
 const scontoSenior = 0.4; // sconto senior
 const scontoJunior = 0.2; //sconto junior
 
+function debug(f) {
+    return f;
+}
+
 // Validazione dati utente
 alert("Grazie per aver scelto Trenord:\ninserire la propria età e i chilometri totali da percorrere (in formato numerico) per calcolare il prezzo del biglietto")
 var etaUtente = parseInt(prompt('Quanti anni hai?'));
-console.log(etaUtente)
+debug(console.log(etaUtente));
+/* pazzescamente se dopo almeno un primo valore numerico inserisco dei caratteri non numerici, mi considera il valore valido e 
+"taglia" dal primo carattere non valido! (es: 10er433f diventa 10) */
 var kmPercorsi = parseInt(prompt('Quanti chilometri devi percorrere?'));
 
 if (isNaN(etaUtente) || isNaN(kmPercorsi)) {
