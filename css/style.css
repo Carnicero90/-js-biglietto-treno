@@ -76,6 +76,7 @@ td {
     min-width: 70px;
 }
 
-#totale::after {
+#totale::after,
+#prezzo-base::after {
     content: "\20AC";
 }

@@ -12,13 +12,20 @@ if (isNaN(etaUtente) || isNaN(kmPercorsi)) {
 }
 //Calcolo prezzo base
 var prezzo = kmPercorsi * coeffKm;
+document.getElementById('prezzo-base').innerHTML = prezzo.toLocaleString("it-IT", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+});
+var scontoApplicato = "0%";
 
 
 // Calcolo sconti in base a età
 if (etaUtente < 18) {
     prezzo = prezzo * coeffUnder18;
+    scontoApplicato = "20%";
 } else if (etaUtente > 65) {
     prezzo = prezzo * coeffOver65;
+    scontoApplicato = "40%";
 }
 
 // Arrotondo a 2 cifre decimali
@@ -28,6 +35,6 @@ var prezzoFinale = prezzo.toLocaleString("it-IT", {
 });
 
 var messaggio = `spenderai ${prezzoFinale} euro`;
-document.getElementById('eta').innerHTML = etaUtente;
-document.getElementById('km').innerHTML = kmPercorsi;
+document.getElementById('km').innerHTML = kmPercorsi.toLocaleString("it-IT");
+document.getElementById('sconto').innerHTML = scontoApplicato;
 document.getElementById('totale').innerHTML = prezzoFinale;
