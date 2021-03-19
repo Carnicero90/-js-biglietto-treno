@@ -5,12 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TRENORD: il tuo viaggio</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <h1>PREVENTIVO</h1>
-    <p id='spesa'></p>
+    <header class="flexer wrapper">
+        <a href="#"><i class="fas fa-bars"></i></a>
+
+        <img src="img/logo.png" class="logo" alt="logo">
+        <a href="#"><i class="fas fa-search"></i></a>
+    </header>
+    <main class="wrapper">
+        <h1>PREVENTIVO</h1>
+        <p id='spesa'></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>età</th>
+                    <th>km</th>
+                    <th>totale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="eta"></td>
+                    <td id="km"></td>
+                    <td id="totale"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button>Concludi acquisto</button>
+    </main>
+
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 

@@ -7,7 +7,6 @@ var etaUtente = parseInt(prompt('Quanti anni hai?'));
 var kmPercorsi = parseInt(prompt('Quanti chilometri devi percorrere?'));
 
 if (isNaN(etaUtente) || isNaN(kmPercorsi)) {
-    // messaggio = "inseriti valori non validi, riprovare";
     alert('inseriti dati non validi, riprovare')
     location.reload();
 }
@@ -18,9 +17,7 @@ var prezzo = kmPercorsi * coeffKm;
 // Calcolo sconti in base a età
 if (etaUtente < 18) {
     prezzo = prezzo * coeffUnder18;
-}
-
-if (etaUtente > 65) {
+} else if (etaUtente > 65) {
     prezzo = prezzo * coeffOver65;
 }
 
@@ -31,5 +28,6 @@ var prezzoFinale = prezzo.toLocaleString("it-IT", {
 });
 
 var messaggio = `spenderai ${prezzoFinale} euro`;
-
-document.getElementById('spesa').innerHTML = messaggio;
+document.getElementById('eta').innerHTML = etaUtente;
+document.getElementById('km').innerHTML = kmPercorsi;
+document.getElementById('totale').innerHTML = prezzoFinale;
