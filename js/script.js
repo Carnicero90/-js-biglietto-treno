@@ -21,7 +21,7 @@ var kmPercorsi = prompt('Quanti chilometri devi percorrere?');
 etaUtente = parseInt((etaUtente * 1));
 kmPercorsi = parseInt((kmPercorsi * 1));
 
-if (isNaN(etaUtente) || isNaN(kmPercorsi)) {
+if (isNaN(etaUtente) || isNaN(kmPercorsi) || etaUtente <= 0 || kmPercorsi <= 0) {
     alert('inseriti dati non validi, riprovare')
     location.reload();
 }
