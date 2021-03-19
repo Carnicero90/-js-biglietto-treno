@@ -1,12 +1,13 @@
-var coeffKm = 0.21; // prezzo al chilometro
-var senior = 65; // età minima per accedere a sconti senior
-var junior = 18; // età massima per accedere a sconti junior
-var scontoSenior = 0.4; // sconto senior
-var scontoJunior = 0.2; //sconto junior
+const coeffKm = 0.21; // prezzo al chilometro
+const senior = 65; // età minima per accedere a sconti senior
+const junior = 18; // età massima per accedere a sconti junior
+const scontoSenior = 0.4; // sconto senior
+const scontoJunior = 0.2; //sconto junior
 
 // Validazione dati utente
 alert("Grazie per aver scelto Trenord:\ninserire la propria età e i chilometri totali da percorrere (in formato numerico) per calcolare il prezzo del biglietto")
 var etaUtente = parseInt(prompt('Quanti anni hai?'));
+console.log(etaUtente)
 var kmPercorsi = parseInt(prompt('Quanti chilometri devi percorrere?'));
 
 if (isNaN(etaUtente) || isNaN(kmPercorsi)) {
@@ -24,21 +25,18 @@ if (etaUtente < junior) {
     fattorePrezzo = 1 - scontoSenior;
     sconto = scontoSenior;
 }
-var prezzo = kmPercorsi * coeffKm;
+var prezzoBase = kmPercorsi * coeffKm;
 
-document.getElementById('prezzo-base').innerHTML = prezzo.toLocaleString("it-IT", {
+var prezzoFinale = prezzoBase * fattorePrezzo;
+
+// .html output
+document.getElementById('prezzo-base').innerHTML = prezzoBase.toLocaleString("it-IT", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
 });
-
-prezzo *= fattorePrezzo;
-scontoApplicato = (sconto * 100).toString() + "%";
-
-var prezzoFinale = prezzo.toLocaleString("it-IT", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-});
-
 document.getElementById('km').innerHTML = kmPercorsi.toLocaleString("it-IT");
-document.getElementById('sconto').innerHTML = scontoApplicato;
-document.getElementById('totale').innerHTML = prezzoFinale;
+document.getElementById('sconto').innerHTML = (sconto * 100).toString() + "%"; // alla fine non l'ho giudicato così criptico scritto così: si capisce, no?
+document.getElementById('totale').innerHTML = prezzoFinale.toLocaleString("it-IT", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+});;
