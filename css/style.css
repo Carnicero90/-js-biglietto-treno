@@ -16,8 +16,20 @@ li {
     list-style-type: none;
 }
 
+.list-inline li {
+    display: inline-block;
+}
+
 .flexer {
     display: flex;
+}
+
+.flexer.col {
+    flex-direction: column;
+}
+
+.flexer.between {
+    justify-content: space-between;
 }
 
 .wrapper {
@@ -47,6 +59,7 @@ header {
 
 main {
     padding-top: 50px;
+    min-height: calc(100vh - 80px);
 }
 
 h1 {
@@ -76,7 +89,24 @@ td {
     min-width: 70px;
 }
 
+td {
+    text-align: left;
+}
+
 #totale::after,
 #prezzo-base::after {
     content: "\20AC";
+}
+
+footer {
+    height: 80px;
+    border-top: 2px solid slategrey;
+    align-items: center;
+}
+
+footer li:nth-child(1n + 2)::before {
+    content: "";
+    margin-left: 10px;
+    margin-right: 10px;
+    border-right: 1px solid slategrey;
 }
