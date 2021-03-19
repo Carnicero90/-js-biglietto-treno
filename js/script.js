@@ -10,11 +10,16 @@ function debug(f) {
 
 // Validazione dati utente
 alert("Grazie per aver scelto Trenord:\ninserire la propria età e i chilometri totali da percorrere (in formato numerico) per calcolare il prezzo del biglietto")
-var etaUtente = parseInt(prompt('Quanti anni hai?'));
+var etaUtente = prompt('Quanti anni hai?');
 debug(console.log(etaUtente));
 /* pazzescamente se dopo almeno un primo valore numerico inserisco dei caratteri non numerici, mi considera il valore valido e 
-"taglia" dal primo carattere non valido! (es: 10er433f diventa 10) */
-var kmPercorsi = parseInt(prompt('Quanti chilometri devi percorrere?'));
+"taglia" dal primo carattere non valido (es: 10er433f diventa 10)! Dovrò spostare "a valle" il parseInt? */
+debug(console.log("10 e caratteri random" * 1));
+//questa sembra una buona soluzione per assicurarsi un NaN, no?
+var kmPercorsi = prompt('Quanti chilometri devi percorrere?');
+
+etaUtente = parseInt((etaUtente * 1));
+kmPercorsi = parseInt((kmPercorsi * 1));
 
 if (isNaN(etaUtente) || isNaN(kmPercorsi)) {
     alert('inseriti dati non validi, riprovare')
