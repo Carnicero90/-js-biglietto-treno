@@ -10,12 +10,28 @@ var etaUtente = prompt('Quanti anni hai?');
 var kmPercorsi = prompt('Quanti chilometri devi percorrere?');
 
 // VERIFICA VALIDITÀ DATI
-var nanBug = (isNaN(parseInt(etaUtente * 1)) || etaUtente.includes("e")) ||
-    (isNaN(parseInt(kmPercorsi * 1)) || kmPercorsi.includes("e"));
 
-var valueBug = (etaUtente <= 0) || (kmPercorsi <= 0);
-var err = nanBug + valueBug;
-if (err) {
+// function debug(f) {
+//     return f;
+// }
+// var err;
+if (etaUtente <= 0 || kmPercorsi <= 0) {
+    // prende valori null e <= 0
+    // err = 1;
+    // debug(console.log(err));
+    alert('inseriti dati non validi, riprovare')
+    location.reload();
+} else if (isNaN(parseInt(etaUtente * 1)) ||
+    isNaN(parseInt(kmPercorsi * 1))) {
+    // Prende Infinity e sequenze contenenti lettere (es: 10efdeea)
+    // err = 2;
+    // debug(console.log(err));
+    alert('inseriti dati non validi, riprovare')
+    location.reload();
+} else if (etaUtente.includes("e") || kmPercorsi.includes("e")) {
+    // Prende valori logaritmici
+    // err = 3;
+    // debug(console.log(err));
     alert('inseriti dati non validi, riprovare')
     location.reload();
 }
